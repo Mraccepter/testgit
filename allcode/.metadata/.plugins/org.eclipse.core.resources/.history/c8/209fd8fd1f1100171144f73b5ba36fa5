@@ -1,0 +1,33 @@
+package temp;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public int getSum(int[] a){
+		if(a == null)
+			return -1;
+		int[] temp = new int[a.length];
+		for(int i = 1; i < a.length; i++){
+			int s = a[i] /10 %10;
+			temp[s] = a[i] % 10;
+		}
+		for(int i = 1; i < temp.length; i++){
+			
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int [] a = new int[18];
+		while(sc.hasNext()){
+			int i = 1;
+			int tem = sc.nextInt();
+			if(tem != 0){
+				a[i++] = sc.nextInt();	
+			}else{
+				break;
+			}
+		}
+	}
+}

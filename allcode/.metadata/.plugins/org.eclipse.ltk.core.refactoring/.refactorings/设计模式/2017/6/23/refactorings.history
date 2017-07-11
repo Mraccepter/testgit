@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;动态代理.SubjectProxy.java&apos; to &apos;ProxyHandler.java&apos;&#x0D;&#x0A;- Original project: &apos;设计模式&apos;&#x0D;&#x0A;- Original element: &apos;动态代理.SubjectProxy.java&apos;&#x0D;&#x0A;- Renamed element: &apos;动态代理.ProxyHandler.java&apos;" description="Rename compilation unit &apos;SubjectProxy.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;动态代理{SubjectProxy.java" name="ProxyHandler.java" references="false" stamp="1496753777805" version="1.0"/>
+</session>

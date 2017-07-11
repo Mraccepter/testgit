@@ -1,0 +1,61 @@
+package temp;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+//		String s = sc.next();
+//		int len = s.length();
+//		if(s.length() == 0)
+//			return;
+//		
+//		char[] c = s.toCharArray();
+//		int countG = 0,countB = 0;//b
+//		int sum = 0;
+//		for(int i = 0; i < s.length(); i++){
+//			if(c[i] != 'G'){
+//				countG++;
+//			}
+//			sum += countG;
+//		}
+//		for(int i = 0; i < s.length(); i++){
+//			if(c[i] != 'B'){
+//				countB++;
+//			}
+//			sum += countB;
+//		}
+//		if(countB > countG)
+//			System.out.println(countG);
+//		else
+//			System.out.println(countB);
+		
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		int[] i = new int[n];
+		while(sc.hasNextInt()){
+			for(int j = 0; j < n; j++)
+				i[j] = sc.nextInt();
+		}
+		if(n < 2 || n > 50 || k < 1 || k >2000000000){
+			return;
+		}
+		while(k-- >0){
+			for(int m = 0; m < n-1; m++){
+				if(i[m] + i[m+1] >= 100)
+					i[m] = (i[m] + i[m+1]) % 100;
+				else
+					i[m] = i[m] + i[m+1];
+			}
+			if(i[n-1] + i[0] >= 100)
+				i[n-1] = (i[n-1] + i[0]) % 100;
+			else
+				i[n-1] = i[n-1] + i[0];
+		}
+		
+		
+		
+	}
+	
+}

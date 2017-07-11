@@ -1,0 +1,11 @@
+package LRUÀ„∑®;
+
+import java.util.LinkedHashMap;
+
+public class LinkedHashMapTest {
+
+	public static void main(String[] args) {
+		LinkedHashMap<String,String> map = new LinkedHashMap<>(16,0.75f,true);
+		
+	}
+}

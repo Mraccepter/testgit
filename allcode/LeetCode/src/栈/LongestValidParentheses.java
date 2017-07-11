@@ -1,0 +1,48 @@
+package 栈;
+import java.util.Stack;
+public class LongestValidParentheses {
+//()(())应该输出3个
+	//下面方法有问题
+	public static int longestValidParent(String s){
+		if(s == null || s.length() < 2)
+			return 0;
+		int max = 0;
+		int count = 0;
+		for(int i = 0; i <s.length()-1;){
+			while(i < s.length() - 1 && s.charAt(i) == '(' && s.charAt(i+1) == ')' 
+					){
+				count = count + 2;
+				i += 2;
+			}
+			max = Math.max(count, max);
+			count = 0;
+			i++;
+		}
+		return max;
+ 	}
+	//这个方法是对的
+	public int longestValidParentheses(String s){
+		int max_len = 0, last = -1;
+		Stack<Integer> stack = new Stack<Integer>();
+		for(int i = 0; i < s.length(); i++){
+			if(s.charAt(i) == '(')
+				stack.push(i);
+			else{
+				if(stack.isEmpty())
+					last = i;
+				else{
+					if(stack.isEmpty()){
+						max_len = Math.max(max_len, i-last);
+					}else{
+						max_len = Math.max(max_len, i - stack.peek());
+					}
+				}
+			}
+		}
+		return max_len;
+	}
+	public static void main(String[] args) {
+		String s = "((()())";
+		System.out.println(longestValidParent(s));
+	}
+}

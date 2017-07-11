@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class Main9 {
+
+	static int mm = 0;
+	 
+	public static void main(String[] args) {
+		  
+		   Scanner in = new Scanner(System.in);
+		   String ss = in.nextLine();
+		   String[] s = ss.split(" ");
+		  
+		   int max = Integer.parseInt(s[0]);
+		   int k = Integer.parseInt(s[1]);
+		  
+		   if(k<max && max<=1000){
+			  
+		       int[] data = new int[max];
+		      
+		       for(int i=0;i<max;i++){
+		    	   data[i] = i+1;
+		       }
+		        
+		    
+			  test(data,0,max-1,k);
+			  
+			  System.out.println(mm%2017);
+		   }else{
+			   return;
+		   }
+		  
+		  
+	 
+	}
+	 
+   
+   
+	
+    public static void test(int[] buf, int start, int end,int k){
+    	
+    	if(buf==null || buf.length==0 || start > end){  //对象未空或者说这个数组的长度为0
+    		return;
+    	}
+       
+    	
+        if(start == end){
+        	    
+        		   if(find(buf,k)){
+        			   mm++;
+        		   }
+        	  
+        	  return;
+         	
+         }
+    	 
+    	 for(int i=start;i<=end;i++){
+    		 
+    		   int temp = buf[i];
+    		   buf[i] = buf[start];
+    		   buf[start] = temp;
+    		  
+    		   test(buf, start+1, end,k);
+    		  
+    		   int temp1 = buf[i];
+    		   buf[i] = buf[start];
+    		   buf[start] = temp1;
+    		 
+    	 }
+     
+    }
+   
+   
+   
+   
+    public static boolean find(int[] data,int k){
+    	
+    	  
+    	  int count=0;
+    	  
+    	  
+    	  for(int i=0;i<data.length-1;){
+    		  
+    		    
+    		   if(data[i] < data[i+1]){
+    			  
+    			   i = i+1;
+    			   count++;
+    		   }else{
+    			   i++;
+    		   }
+    		  
+    	  }
+    	  
+    	  if(count == k){
+    		  return true;
+    	  }else{
+    		  return false;
+    	  }
+    	
+    	
+    	
+    }
+
+}
+}

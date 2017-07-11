@@ -1,0 +1,37 @@
+package ÏßÐÔ±í;
+
+import java.util.ArrayList;
+
+public class ThreeSum {
+
+	public ArrayList<ArrayList<Integer>> threeSum(int[] nums, int target){
+		ArrayList<ArrayList<Integer>> listAll = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> list = new ArrayList<>();
+		for(int i = 0; i < nums.length-2; i++){
+			int j = i+1;
+			if(i > 0 && nums[i] == nums[i-1])
+				continue;
+			int k = nums.length-1;
+			while(j < k){
+				if(nums[i] + nums[j] + nums[k] < target){
+					j++;
+					while(nums[j] == nums[j-1] && j < k) j++;
+				}else if(nums[i] + nums[j] + nums[k] > target){
+					k--;
+					while(nums[k] == nums[k+1] && j < k) k--;
+				}else{
+					list.add(nums[i]);
+					list.add(nums[j]);
+					list.add(nums[k]);
+				}
+					
+				
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		
+	}
+}

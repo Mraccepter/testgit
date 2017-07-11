@@ -1,0 +1,23 @@
+package NIO;
+
+import java.io.FileOutputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
+public class GetChannel {
+
+	private static final int BSIZE = 1024;
+	public static void main(String[] args) throws Exception{
+		FileChannel fc = new FileOutputStream("logon.out").getChannel();
+		fc.write(ByteBuffer.wrap("some text".getBytes()));
+		fc.close();
+		fc = new RandomAccessFile("logon.out", "rw").getChannel();
+		ByteBuffer buff = ByteBuffer.allocate(BSIZE);
+		fc.read(buff);
+		buff.flip();
+		while(buff.hasRemaining()){
+			System.out.println((char)buff.getChar());
+		}
+	}
+}
